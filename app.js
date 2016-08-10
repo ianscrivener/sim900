@@ -1,5 +1,11 @@
-const sim900 = require("sim900");
-const sim = new sim900("/dev/cu.usbserial-A703X2W0", {});
+const sim900 = require("./lib/index");
+const sim = new sim900("/dev/ttyS0", {
+    baudRate: 115200,
+    dataBits: 8,
+    parity: 'none',
+    stopBits: 1,
+    flowControl: false
+});
 
 sim.ready()
     .then(()=> {
